@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    heroku-db-sync (0.0.1)
+    heroku-db-sync (0.1.0)
+      heroku
       rails
 
 GEM
@@ -108,7 +109,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  heroku
   heroku-db-sync!
   jquery-rails
   sqlite3

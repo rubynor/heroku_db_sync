@@ -17,6 +17,6 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails"
-
+  s.add_runtime_dependency "heroku"
   s.add_development_dependency "sqlite3"
 end
