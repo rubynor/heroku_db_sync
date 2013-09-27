@@ -22,7 +22,7 @@ Recommended git remotes setup pattern:
 	#backup production and overwrite staging db
 	rake db:sync:heroku:staging
 	
-	#NOTE: heroku will prompt you to confirm the name of the application that you overwrite the data for
+	#NOTE: heroku will prompt you to confirm the name of the before overwriting it! Remember to type it
 
 you may also specify remotes
 
