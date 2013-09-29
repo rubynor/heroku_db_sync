@@ -27,7 +27,9 @@ Recommended git remotes setup pattern:
 you may also specify remotes
 
 	rake db:sync:heroku:remote[staging,production]
-	#where to_remote:staging and from_remote:production
+	#where to_remote=staging and from_remote=production
+	rake db:sync:heroku:local[staging]
+	#where from_remote=staging
 
 ## Contributing
 
