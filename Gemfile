@@ -14,3 +14,6 @@ gem "jquery-rails"
 
 # To use debugger
 # gem 'debugger'
+
+# Awesome gem to handle releases, pushing to rubygems and tags to github
+gem 'gem-release'
