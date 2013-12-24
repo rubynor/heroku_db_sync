@@ -1,4 +1,5 @@
 require 'heroku-db-sync/task_helper'
+require 'heroku-db-sync/deploy_and_migrate'
 
 module HerokuDbSync
 
