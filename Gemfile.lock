@@ -1,8 +1,7 @@
 PATH
   remote: .
   specs:
-    heroku-db-sync (0.1.0)
-      heroku
+    heroku-db-sync (0.2.0)
       rails
 
 GEM
@@ -35,19 +34,10 @@ GEM
     activesupport (3.2.14)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    addressable (2.3.5)
     arel (3.0.2)
     builder (3.0.4)
     erubis (2.7.0)
-    excon (0.20.1)
-    heroku (2.37.2)
-      heroku-api (~> 0.3.7)
-      launchy (>= 0.3.2)
-      netrc (~> 0.7.7)
-      rest-client (~> 1.6.1)
-      rubyzip
-    heroku-api (0.3.9)
-      excon (~> 0.20.1)
+    gem-release (0.6.0)
     hike (1.2.3)
     i18n (0.6.5)
     journey (1.0.4)
@@ -55,14 +45,11 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
-    launchy (2.3.0)
-      addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25)
     multi_json (1.8.0)
-    netrc (0.7.7)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -89,9 +76,6 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
-    rubyzip (0.9.9)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -103,12 +87,13 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.37)
+    tzinfo (0.3.38)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  gem-release
   heroku-db-sync!
   jquery-rails
   sqlite3

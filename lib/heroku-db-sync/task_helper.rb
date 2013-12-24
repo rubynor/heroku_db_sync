@@ -1,5 +1,6 @@
 
 module HerokuDbSync
+
   module TaskHelper
     def self.perform_sync arguments
       Bundler.with_clean_env do

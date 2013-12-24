@@ -1,7 +1,7 @@
 
-namespace :db do
+namespace :heroku do
   namespace :sync do
-    namespace :heroku do
+    namespace :db do
       desc 'sync local DB with heroku. set [from_remote] to pull from other than production'
       task :local, [:from_remote, :host, :database, :username] => :environment do | task, arguments |
         HerokuDbSync::TaskHelper.perform_sync arguments.to_hash.merge({to_remote: nil})
