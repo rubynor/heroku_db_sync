@@ -16,7 +16,7 @@ Recommended git remotes setup pattern:
 
     gem 'heroku-db-sync'
 
-    #backup production and copy to localdevelopment pg db
+    #backup production and overwrite local development (postgresql) db
 	rake db:sync:heroku:local
 
 	#backup production and overwrite staging db
