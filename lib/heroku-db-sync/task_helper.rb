@@ -7,17 +7,16 @@ module HerokuDbSync
         @arguments = arguments
         from_remote = arguments[:from_remote] || 'production'
         to_remote = arguments[:to_remote]
-
         puts "(1/4) capturing #{from_remote} database snapshot..."
-        run "heroku pgbackups:capture --expire --remote #{from_remote}"
+        run "heroku pg:backups capture --remote #{from_remote}"
 
         if to_remote
           puts "(2/4) fetching backup url from remote #{from_remote}"
-          backup_url = runr("heroku pgbackups:url --remote #{from_remote}")
+          backup_url = runr("heroku pg:backups public-url -q --remote #{from_remote}")
           print "(3/4) backing up #{to_remote} and restoring it from snapshot from #{from_remote} ... "
-          run "heroku pgbackups:capture --expire --remote #{to_remote}"
+          run "heroku pg:backups capture --remote #{to_remote}"
           puts "captured. restoring .."
-          restore_cmd = "heroku pgbackups:restore DATABASE '#{backup_url}' --remote #{to_remote}"
+          restore_cmd = "heroku pg:backups restore DATABASE '#{backup_url}' --remote #{to_remote}"
           puts restore_cmd
           run restore_cmd   # use 'system' as heroku prompts for confirmation of db restore.
           puts "(4/4) restarting remote #{to_remote}"
@@ -25,7 +24,7 @@ module HerokuDbSync
         else
           dumpfile = 'latest.dump'
           puts "(2/4) downloading snapshot..."
-          run "curl -o #{dumpfile} \`heroku pgbackups:url --remote #{from_remote}\`"
+          run "curl -o #{dumpfile} \`heroku pg:backups public-url -q --remote #{from_remote}\`"
           puts "(3/4) restoring snapshot to #{host} database #{database} ... "
           `pg_restore --verbose --clean --no-acl --no-owner -h #{host} -U #{user} -d #{database} #{dumpfile}`
           keep = arguments[:keepdump] || false
